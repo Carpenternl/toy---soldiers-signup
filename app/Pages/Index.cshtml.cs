@@ -5,6 +5,7 @@ using System.IO;
 using System.Text.Json;
 using System.Web;
 using Microsoft.Extensions.Hosting.Internal;
+using System.Text;
 
 namespace app.Pages;
 
@@ -16,8 +17,7 @@ public class IndexModel : PageModel
 
     [BindProperty]
     public string UserEmail { get; set; } = "err";
-
-    [BindProperty(Name ="user-pass")]
+    [BindProperty]
     public string UserPassword{get; set;}="";
     [BindProperty]
     new public  User?  User {get;set;}
@@ -43,8 +43,13 @@ public class IndexModel : PageModel
         UserEmail = "Hello";
         await Task.Run(()=>{
              User = _snackService.GetUsers().First();
-             
-             UserEmail=UserPassword??"none";
+            //  var aes = System.Security.Cryptography.Aes.Create();
+            //  var passWordBytes = Encoding.UTF8.GetBytes(UserPassword);
+            //  aes.create
+            //  var aesCrpt =aes.EncryptCbc(passWordBytes,new []{(byte)17});
+            //  var aestring = Encoding.UTF8.GetString(aesCrpt);
+            //  UserEmail=aestring;
+
             
 
         });

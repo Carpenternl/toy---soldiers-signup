@@ -18,15 +18,15 @@
     <p>Geef je op!</p>
     <fieldset>
         <legend>
-            gebruikersgegevens @Model.User?.Name
-        </legend>
+            gebruikersgegevens @Model.UserEmail
+        </legend> 
         <div class="mb-3">
             <label for="input_user-email" class="form-label">naam/e-mail adres</label>
             <input type="text" asp-for="User.Name" class="form-control" id="input_user-email" placeholder="name@example.com">
         </div>
         <div class="mb-3">
             <label for="input_user-pass" class="form-label">wachtwoord</label>
-            <input type="password" asp-for="user-pass" class="form-control" id="input_user-pass">
+            <input type="password" asp-for="UserPassword" class="form-control" id="input_user-pass">
         </div>
     </fieldset>
     <fieldset>
@@ -35,7 +35,6 @@
         {
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">snack @i</span>
-
                 <select class="form-select" name=snack_@i aria-label="Default select example">
                     @foreach (var snackItem in Model.SnackList)
                     {
